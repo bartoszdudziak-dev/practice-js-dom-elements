@@ -10,9 +10,10 @@ if (curr) {
   curr.parentElement.appendChild(newButtonEl);
 
   // 2
-  Array.from(curr.parentElement.children).forEach((child) =>
-    child.classList.add("siblings")
-  );
+  Array.from(curr.parentElement.children).forEach((child) => {
+    if (child === curr) return;
+    child.classList.add("siblings");
+  });
 
   // 3
   const articleEl = curr.parentElement.nextElementSibling;

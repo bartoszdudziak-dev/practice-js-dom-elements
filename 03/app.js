@@ -14,9 +14,11 @@ const buttonSettings = {
 };
 
 const button = document.createElement("button");
-button.classList.add(buttonSettings.attr.className);
-button.setAttribute("title", buttonSettings.attr.title);
 button.innerText = buttonSettings.text;
+
+for (const propety in buttonSettings.attr) {
+  button.setAttribute(propety, buttonSettings.attr[propety]);
+}
 
 for (const propety in buttonSettings.css) {
   button.style[propety] = buttonSettings.css[propety];
